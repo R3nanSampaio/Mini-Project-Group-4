@@ -1,0 +1,4 @@
+#test {font-size: 35px; font-family: "Comic Sans MS", "Comic Sans", cursive; background-color: rgb(225, 220, 220);}
+.menu {display: inline-block; padding-left: 900px;}
+.menu1 {display: inline-block;}
+.menuItem{display: inline; padding-left: 10px;}
