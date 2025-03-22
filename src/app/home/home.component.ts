@@ -13,49 +13,54 @@ import { CdkDragDrop,moveItemInArray, transferArrayItem, CdkDrag, CdkDropList} f
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  todo=[{name:"test1", id:1}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
+  done=[{name:"test1", id:1}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
+
+
   newItem: string = '';
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+  
+  itemIndex: object[] = this.todo.concat(this.done)
+  itemIndexNum:number = this.itemIndex.length
 
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
-
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex,
         
       );
-      console.log(this.todo, this.done)
     } else {
       transferArrayItem(
         event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex,
       );
-      console.log(this.todo, this.done)
     }
   }
 
+
   addTask() {
-   /*let allArray = this.todo.concat(this.done)
-    console.log(allArray)
-    for (let i = 0; i< allArray.length; i++) {
-      if (this.newItem == allArray[i]) {
-        alert("New task cannot be same as an already existing task") 
-        return
-      }
-    }*/
-    this.todo.push(this.newItem)
-    }    
+    
+    this.itemIndex = this.todo.concat(this.done)
+    this.itemIndexNum = this.itemIndex.length
+    
+    const newTask = { 
+      name: this.newItem, 
+      id: this.itemIndexNum
+    };
 
+    this.todo.push(newTask)
+    console.log(this.todo)
+    console.log(this.itemIndexNum)
+  }
 
-  test:string = "Testing"
-  deleteTodo(parameter:string) {
+  
+  deleteTodo(parameter:number) {
     for (let i = 0; i< this.todo.length; i++) {
-      if (this.todo[i] === parameter) {
+      if (this.todo[i].id === parameter) {
         this.todo.splice(i, 1)
       }
     }
   }
-  deleteDone(parameter:string) {
+  deleteDone(parameter:number) {
     for (let i = 0; i< this.done.length; i++) {
-      if (this.done[i] === parameter) {
+      if (this.done[i].id === parameter) {
         this.done.splice(i, 1)
       }
     }
