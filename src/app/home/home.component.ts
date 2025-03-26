@@ -21,7 +21,7 @@ export class HomeComponent {
 
   newItem: string = '';
   
-  itemIndex: object[] = this.todo.concat(this.done)
+  itemIndex: object[] = this.todo.concat(this.done, this.progress)
   itemIndexNum:number = this.itemIndex.length
 
   drop(event: CdkDragDrop<any[]>) {
@@ -39,7 +39,7 @@ export class HomeComponent {
 
   addTask() {
     
-    this.itemIndex = this.todo.concat(this.done)
+    this.itemIndex = this.todo.concat(this.done,  this.progress)
     this.itemIndexNum = this.itemIndex.length
     
     const newTask = { 
