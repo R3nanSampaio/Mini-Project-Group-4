@@ -8,13 +8,13 @@
 
 <div>
   <div class="example-container">
-    <h2>Testing</h2>
+    <h2>To Do</h2>
   
     <div
       cdkDropList
       #list1="cdkDropList"                  
       [cdkDropListData]="todo"
-      [cdkDropListConnectedTo]="[list2]"    
+      [cdkDropListConnectedTo]="[list2,list3]"    
       class="example-list"
       (cdkDropListDropped)="drop($event)">
   
@@ -24,15 +24,34 @@
       </div>
     </div>
   </div>
+
+  <div>
+    <div class="example-container">
+      <h2>In Progress</h2>
+    
+      <div
+        cdkDropList
+        #list3="cdkDropList"                  
+        [cdkDropListData]="progress"
+        [cdkDropListConnectedTo]="[list2,list1]"    
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+    
+        <div *ngFor="let item of progress;" class="example-box" cdkDrag>
+          {{ item.name }} 
+          <button (click)="deleteProgess(item.id)">Delete (Evil)</button>
+        </div>
+      </div>
+    </div>
   
   <div class="example-container">
-    <h2>Testing 2</h2>
+    <h2>Done</h2>
   
     <div
       cdkDropList
       #list2="cdkDropList"                  
       [cdkDropListData]="done"
-      [cdkDropListConnectedTo]="[list1]"    
+      [cdkDropListConnectedTo]="[list1,list3]"    
       class="example-list"
       (cdkDropListDropped)="drop($event)">
   

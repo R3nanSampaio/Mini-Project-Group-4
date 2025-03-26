@@ -15,6 +15,8 @@ import { CdkDragDrop,moveItemInArray, transferArrayItem, CdkDrag, CdkDropList} f
 export class HomeComponent {
   todo=[{name:"test1", id:1}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
   done=[{name:"test1", id:1}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
+  progress=[{name:"test1", id:1}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
+
 
 
   newItem: string = '';
@@ -55,6 +57,13 @@ export class HomeComponent {
     for (let i = 0; i< this.todo.length; i++) {
       if (this.todo[i].id === parameter) {
         this.todo.splice(i, 1)
+      }
+    }
+  }
+  deleteProgess(parameter:number) {
+    for (let i = 0; i< this.progress.length; i++) {
+      if (this.progress[i].id === parameter) {
+        this.progress.splice(i, 1)
       }
     }
   }
