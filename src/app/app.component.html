@@ -1,10 +1,12 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
                 (closed)="events.push('close!')">
-      Sidenav content
-      <h2><button mat-button routerLink="home" id="test">Home</button></h2>
-      <a routerLink="test"><p>Test</p></a>
-      <a routerLink="about-us"><p>About Us</p></a>
+      <div class="nav-buttons">
+        <button mat-button routerLink="home" class="nav-button home-button">
+          <mat-icon>home</mat-icon>
+        </button>
+        <button mat-button routerLink="about-us" class="nav-button">About Us</button>
+      </div>
     </mat-sidenav>
 
     <mat-sidenav-content>
@@ -15,9 +17,10 @@
         <h1 class="menuItem">Sign In</h1>
       </div>
       <div>
-      <button mat-button (click)="sidenav.toggle()">Open menu</button>
+        <button mat-button (click)="sidenav.toggle()" class="nav-button menu-toggle">
+          <mat-icon>{{sidenav.opened ? 'arrow_back' : 'arrow_forward'}}</mat-icon>
+        </button>
       </div>
       <router-outlet></router-outlet>
     </mat-sidenav-content>  
-  </mat-sidenav-container>
-  <iframe width="110" height="200" src="https://www.myinstants.com/instant/drunk-squirrel-laugh-76444/embed/" frameborder="0" scrolling="no"></iframe>  
+</mat-sidenav-container>

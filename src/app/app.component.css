@@ -1,4 +1,93 @@
-#test {font-size: 35px; font-family: "Comic Sans MS", "Comic Sans", cursive; background-color: rgb(225, 220, 220);}
-.menu {display: inline-block; padding-left: 900px;}
-.menu1 {display: inline-block;}
-.menuItem{display: inline; padding-left: 10px;}
+.menu {
+    display: inline-block; 
+    padding-left: 900px;
+}
+
+.menu1 {
+    display: inline-block;
+}
+
+.menuItem {
+    display: inline; 
+    padding-left: 10px;
+}
+
+.nav-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #333;
+    padding: 8px 16px;
+    margin: 4px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    font-weight: 500;
+    min-width: 120px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.nav-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    gap: 8px;
+}
+
+mat-sidenav {
+    width: 150px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.home-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    position: relative;
+}
+
+.home-button mat-icon {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: 0.5px; /* Small adjustment for visual centering */
+    transform: translateX(2%); /* Percentage-based micro-adjustment */
+}
+
+.menu-toggle {
+    transform: scale(1.7);
+    min-width: 50px;
+    width: 50px; /* Increased width */
+    padding: 4px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* For absolute positioning of icon */
+    overflow: visible;
+}
+
+.menu-toggle mat-icon {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 28px;
+    left: 42%; /* Adjusted from 48% to 42% for visual centering */
+    transform-origin: center;
+    transform: translateX(-50%) scaleX(1.3); /* Combine centering with stretch */
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}

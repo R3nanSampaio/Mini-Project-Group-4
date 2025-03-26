@@ -3,6 +3,9 @@
     max-width: 500px;
     width: 50%;
     height: 100px;
+    margin: 0 auto; /* Center the form */
+    padding-left: 60px; /* Space for the menu toggle button */
+    box-sizing: border-box;
   }
   
   .example-full-width {
@@ -13,10 +16,11 @@
   .example-container {
     width: 400px;
     max-width: 100%;
-    margin: 0 25px 25px 0;
+    margin: 0 auto; /* Center the containers */
     display: inline-block;
     vertical-align: top;
-    padding-top: 60px;
+    padding-top: 20px; /* Reduced top padding */
+    padding-left: 60px; /* Space for the menu toggle button */
   }
   
   .example-list {
