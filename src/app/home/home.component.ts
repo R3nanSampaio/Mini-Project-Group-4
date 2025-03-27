@@ -13,13 +13,14 @@ import { CdkDragDrop,moveItemInArray, transferArrayItem, CdkDrag, CdkDropList} f
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  todo=[{name:"test1", id:1}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
-  done=[{name:"test1", id:1}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
-  progress=[{name:"test1", id:1}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
+  todo=[{name:"test1", id:1, desc:"hehe"}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
+  done=[{name:"test1", id:1, desc: "1234"}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
+  progress=[{name:"test1", id:1, desc:"0987"}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
 
 
 
   newItem: string = '';
+  newItemdesc:string = '';
   
   itemIndex: object[] = this.todo.concat(this.done, this.progress)
   itemIndexNum:number = this.itemIndex.length
@@ -44,12 +45,14 @@ export class HomeComponent {
     
     const newTask = { 
       name: this.newItem, 
+      desc: this.newItemdesc,
       id: this.itemIndexNum
     };
 
     this.todo.push(newTask)
     console.log(this.todo)
     console.log(this.itemIndexNum)
+    console.log(this.newItemdesc)
   }
 
   

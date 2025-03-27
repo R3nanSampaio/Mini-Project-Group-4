@@ -6,6 +6,7 @@
     margin: 0 auto; /* Center the form */
     padding-left: 60px; /* Space for the menu toggle button */
     box-sizing: border-box;
+    display: block;
   }
   
   .example-full-width {
@@ -36,7 +37,7 @@
     padding: 20px 10px;
     border-bottom: solid 1px #ccc;
     color: rgba(0, 0, 0, 0.87);
-    display: flex;
+    display: block;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
