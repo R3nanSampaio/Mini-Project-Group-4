@@ -1,0 +1,23 @@
+<p>cold works!</p>
+<div class="div1">
+    <p>     Milk: <button (click)="lessMilk()" [disabled]="milkVal == 0">-</button> {{milkVal}} <button (click)="addMilk()">+</button></p>
+    <p>    +{{milkCost2}}$$</p>
+    <p>    Syrup: <button (click)="lessSyrup()" [disabled]="syrupVal == 0">-</button>  {{syrupVal}} <button (click)="addSyrup()">+</button></p>
+    <p>    +{{syrupCost2}}$$</p>
+    <p>    Caffeine:<button (click)="lessCaffeine()" [disabled]="caffeineVal == 0">-</button>  {{caffeineVal}} <button (click)="addCaffeine()">+</button></p>
+    <p>    +{{caffeineCost2}}$$</p>
+</div>
+<div>
+    <p>Discount Code: <input type="text" [(ngModel)]="code"> <button (click)="checkDiscount()">Check Discount</button></p>
+    <p>{{code}}</p>
+</div>
+<div class="div1">
+    <p>Subtotal: {{subtotal2}}</p>
+    <p id="Discount" style="display: none;">Discount 20%</p>
+</div>
+<div class="div1">
+    <p>Tax: {{subtotalTax}}</p>
+</div>
+<div>
+    <p>Total: {{total}}</p>
+</div>
