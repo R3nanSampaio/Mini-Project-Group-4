@@ -26,9 +26,9 @@ const firebaseConfig = {
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  todo=[{name:"test1", id:1, desc:"hehe"}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
-  done=[{name:"test1", id:1, desc: "1234"}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
-  progress=[{name:"test1", id:1, desc:"0987"}, {name:"test2", id:2},{name:"test1", id:3}, {name:"test1", id:4}, {name:"test1", id:5}, ]
+  todo=[{name:"You are not logged in", id:1, desc:"Changes will not be saved"}, ]
+  done=[{name:"You are not logged in", id:2, desc:"Changes will not be saved"}, ]
+  progress=[{name:"You are not logged in", id:3, desc:"Changes will not be saved"}, ]
 
 
 
@@ -38,9 +38,6 @@ export class HomeComponent {
   itemIndex: object[] = this.todo.concat(this.done, this.progress)
   itemIndexNum:number = this.itemIndex.length
 
-  alertFunc() {
-    alert(this.todo)
-  }
 
 ngOnInit() {
     const auth = getAuth();
