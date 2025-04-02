@@ -23,13 +23,9 @@ const app = initializeApp(firebaseConfig);
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+  userName: string = '';
   registerEmail: string = '';
   registerPassword: string = '';
-  username: string = '';
-
-
-
-
 
   register() {
 
@@ -45,7 +41,7 @@ export class RegisterComponent {
         const userDocRef = doc(collection(db, 'users'), user.uid); // Reference to the user's document
       await setDoc(userDocRef, {
         email: user.email,
-        username: this.username, // Replace with the actual age input from the user
+        username: this.userName, // Replace with the actual age input from the user
       });
         
         alert('Registration successful!');

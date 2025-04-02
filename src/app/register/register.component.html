@@ -1,15 +1,17 @@
-<p>register works!</p>
-<div>
-    <h2>Register</h2>
-    <form>
+<div class="login-container">
+  <form class="login-form">
+    <div class="form-group">
+      <label for="register-username">User Name:</label>
+      <input type="text" id="register-username" name="register-username" [(ngModel)]="userName" required />
+    </div>
+    <div class="form-group">
       <label for="register-email">Email:</label>
       <input type="email" id="register-email" name="register-email" [(ngModel)]="registerEmail" required />
-      <br />
+    </div>
+    <div class="form-group">
       <label for="register-password">Password:</label>
       <input type="password" id="register-password" name="register-password" [(ngModel)]="registerPassword" required />
-      <br />
-      <label for="register-username">Username</label>
-      <input type="text" id="register-username" name="register-username" [(ngModel)]="username" required />
-      <button type="submit" (click)="register()">Register</button>
-    </form>
-  </div>
+    </div>
+    <button type="submit" (click)="register()" class="submit-button">Sign In</button>
+  </form>
+</div>

@@ -1,1 +1,30 @@
 .div1 {border-bottom: 1px black solid;}
+
+.product-container {
+  max-width: 480px; /* Reduced 20% from original 600px */
+  margin: 0 auto;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* Align content to the left */
+  text-align: left;         /* Ensure text is left aligned */
+}
+
+.product-container > *:not(h1) {
+  margin-left: 10%;
+}
+
+.product-container h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.discount-code-container {
+  width: 100%;
+  text-align: left;
+  padding-left: 0;
+}

@@ -14,12 +14,12 @@
       <div class="menu1">
       </div>
       <div class="menu">
-        <h1>{{logOrNot}}</h1>
-        <div [style.display]="menuDisplay">
-        <button class="nav-button" routerLink="/login">Login</button>
-        <button class="nav-button" routerLink="/register">Sign In</button>
+        <h1 class="login-message">{{logOrNot}}</h1>
+        <div class="auth-buttons" [style.display]="menuDisplay">
+          <button class="nav-button" routerLink="/login">Login</button>
+          <button class="nav-button" routerLink="/register">Sign In</button>
         </div>
-        <div [style.display]="signOutDisplay">
+        <div class="auth-buttons" [style.display]="signOutDisplay">
           <button class="nav-button" (click)="signOut()">Sign out</button>
         </div>
       </div>
