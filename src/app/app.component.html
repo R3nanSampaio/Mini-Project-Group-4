@@ -16,12 +16,11 @@
       <div class="menu">
         <h1>{{logOrNot}}</h1>
         <div [style.display]="menuDisplay">
-        <h1 class="menuItem">Login</h1>
-        <h1 class="menuItem">Sign In</h1>
+        <button class="nav-button" routerLink="/login">Login</button>
+        <button class="nav-button" routerLink="/register">Sign In</button>
         </div>
         <div [style.display]="signOutDisplay">
-          <h1 class="menuItem">Sign out</h1>
-          <button (click)="signOut()">Sign out</button>
+          <button class="nav-button" (click)="signOut()">Sign out</button>
         </div>
       </div>
       <div>
