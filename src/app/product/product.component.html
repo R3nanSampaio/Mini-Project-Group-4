@@ -1,4 +1,3 @@
-<p>cold works!</p>
 <div class="div1">
     <p>     Milk: <button (click)="lessMilk()" [disabled]="milkVal == 0">-</button> {{milkVal}} <button (click)="addMilk()">+</button></p>
     <p>    +{{milkCost2}}$$</p>
@@ -9,7 +8,6 @@
 </div>
 <div>
     <p>Discount Code: <input type="text" [(ngModel)]="code"> <button (click)="checkDiscount()">Check Discount</button></p>
-    <p>{{code}}</p>
 </div>
 <div class="div1">
     <p>Subtotal: {{subtotal2}}</p>
@@ -21,3 +19,4 @@
 <div>
     <p>Total: {{total}}</p>
 </div>
+<button (click)="addInvoice()">Confirm purchase</button>

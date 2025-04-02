@@ -43,6 +43,8 @@ export class ProductComponent {
   subtotalTax = (this.subtotal*0.10).toFixed(2)
 
   total:string = (this.subtotal + this.subtotal*0.10).toFixed(2)
+
+  invoices: {baseCost: string, milk: string, syrup: string, caffeine: string,discount: string, subtotal: string, tax: string, total: string}[] = []
   
 
   calculateSubtotal() {
@@ -121,6 +123,58 @@ export class ProductComponent {
       }
       this.calculateSubtotal()
       alert("Invalid code")}
-
 }
+  clearAll() {
+    this.milkVal = 0 
+    this.syrupVal = 0
+    this.caffeineVal = 0  
+    this.code = ''
+    this.discountBoo = false
+    this.milkCost = 0
+    this.syrupCost = 0
+    this.caffeineCost = 0
+    this.subtotal = 0
+    this.subtotal2 = "0.00"
+    this.subtotalTax = "0.00"
+    this.total = "0.00"
+  }
+         
+ 
+    addInvoice() {
+      const invoice = {
+        baseCost: "0.50",
+        milk: this.milkCost2,
+        syrup: this.syrupCost2,
+        caffeine: this.caffeineCost2,
+        discount: this.discountBoo ? "20%" : "None",
+        subtotal: this.subtotal2,
+        tax: this.subtotalTax,
+        total: this.total
+      };
+      this.invoices.push(invoice);
+      console.log(this.invoices)
+      this.saveInvoices()
+      this.clearAll()
+    }
+    async saveInvoices() {
+      const auth = getAuth();
+      const user = auth.currentUser;
+    
+      if (!user) {
+        console.log('User is not logged in. Invoices will not be saved.');
+        return;
+      }
+    
+      const db = getFirestore();
+      const userDocRef = doc(db, 'users', user.uid); 
+    
+      try {
+        await updateDoc(userDocRef, {
+          invoices: this.invoices, 
+        });
+        console.log('Invoices saved successfully!');
+      } catch (error) {
+        console.error('Error saving invoices:', error);
+      }
+    }
 }
