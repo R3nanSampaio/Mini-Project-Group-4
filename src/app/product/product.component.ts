@@ -1,5 +1,19 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { getFirestore, collection, setDoc, doc, getDoc, updateDoc } from 'firebase/firestore/lite'
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB8wWFUVIDDdN-nLIKV5gMMGRluCq5DOfI",
+  authDomain: "miniprojectg4-97534.firebaseapp.com",
+  projectId: "miniprojectg4-97534",
+  storageBucket: "miniprojectg4-97534.firebasestorage.app",
+  messagingSenderId: "74212901424",
+  appId: "1:74212901424:web:68093d5cb5b045d705e3f5"
+};
+
+const app = initializeApp(firebaseConfig);
 
 @Component({
   selector: 'app-product',
