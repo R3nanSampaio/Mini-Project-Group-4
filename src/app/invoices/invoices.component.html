@@ -9,4 +9,5 @@
     <p>Subtotal: {{ invoice.subtotal }}</p>
     <p>Tax: {{ invoice.tax }}</p>
     <p>Total: {{ invoice.total }}</p>
+    <button (click)="downloadInvoicePDF(invoice.id)">Download</button>
 </div>

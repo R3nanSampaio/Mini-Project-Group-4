@@ -23,7 +23,7 @@ const app = initializeApp(firebaseConfig);
 })
 export class ProductComponent {
 
-  invoices: {baseCost: string, milk: string, syrup: string, caffeine: string,discount: string, subtotal: string, tax: string, total: string}[] = []
+  invoices: {baseCost: string, milk: string, syrup: string, caffeine: string,discount: string, subtotal: string, tax: string, total: string, id: number}[] = []
   
 
   ngOnInit() {
@@ -164,7 +164,8 @@ export class ProductComponent {
         discount: this.discountBoo ? "20%" : "None",
         subtotal: this.subtotal2,
         tax: this.subtotalTax,
-        total: this.total
+        total: this.total,
+        id: this.invoices.length + 1
       };
       this.invoices.push(invoice);
       console.log(this.invoices)
