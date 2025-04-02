@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
@@ -17,11 +17,27 @@ const app = initializeApp(firebaseConfig);
 
 @Component({
   selector: 'app-product',
-  imports: [FormsModule],
+  imports: [FormsModule, ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
+
+  invoices: {baseCost: string, milk: string, syrup: string, caffeine: string,discount: string, subtotal: string, tax: string, total: string}[] = []
+  
+
+  ngOnInit() {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        this.updateInvoice();
+      } else {
+        return
+      }
+    });
+  }
+
+  
   code:string = ''
 
   discountBoo:boolean = false
@@ -44,7 +60,6 @@ export class ProductComponent {
 
   total:string = (this.subtotal + this.subtotal*0.10).toFixed(2)
 
-  invoices: {baseCost: string, milk: string, syrup: string, caffeine: string,discount: string, subtotal: string, tax: string, total: string}[] = []
   
 
   calculateSubtotal() {
@@ -177,4 +192,29 @@ export class ProductComponent {
         console.error('Error saving invoices:', error);
       }
     }
+    async updateInvoice() {
+      const auth = getAuth();
+      const user = auth.currentUser;
+  
+      if (user) {
+        const db = getFirestore();
+        const userDocRef = doc(db, 'users', user.uid);
+        const userDoc = await getDoc(userDocRef);
+  
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          this.invoices = userData['invoices']
+          
+  
+          if (this.invoices=== undefined) {
+            this.invoices = []
+          }
+        } 
+      } else {
+        return
+      }
+    }
+  
+    
+
 }
