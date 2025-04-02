@@ -1,4 +1,4 @@
-<div>
+<div class="input-container">
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Task Title</mat-label>
@@ -10,8 +10,10 @@
       <mat-label>Description (optional)</mat-label>
       <input matInput id="testIn" [(ngModel)]="newItemdesc" name="newItemdesc" placeholder="Task description" maxlength="50" type="text">
     </mat-form-field>
-    <button (click)="addTask()" style="display: block;">Add task</button>
   </form>
+  <div class="button-container">
+    <button (click)="addTask()" class="add-task-button">Add task</button>
+  </div>
 </div>
 
 <div class="kanban-board">
@@ -21,7 +23,7 @@
       <div *ngFor="let item of todo;" class="example-box" cdkDrag>
         <h2>{{ item.name }} </h2>
         <p>{{ item.desc}}</p>
-        <button (click)="deleteTodo(item.id)">Delete</button>
+        <button (click)="deleteTodo(item.id)" class="delete-button">Delete</button>
       </div>
     </div>
   </div>
@@ -31,7 +33,7 @@
       <div *ngFor="let item of progress;" class="example-box" cdkDrag>
         <h2>{{ item.name }}</h2>
         <p>{{ item.desc}}</p>
-        <button (click)="deleteProgess(item.id)">Delete</button>
+        <button (click)="deleteProgess(item.id)" class="delete-button">Delete</button>
       </div>
     </div>
   </div>
@@ -42,7 +44,7 @@
       <div *ngFor="let item of done;" class="example-box" cdkDrag>
         <h2>{{ item.name }}</h2>
         <p>{{ item.desc}}</p>
-        <button (click)="deleteDone(item.id)">Delete</button>
+        <button (click)="deleteDone(item.id)" class="delete-button">Delete</button>
       </div>
     </div>
   </div>
