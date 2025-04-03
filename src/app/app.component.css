@@ -59,7 +59,7 @@
 mat-sidenav {
     width: 150px;
     padding: 8px;
-    background: rgba(255, 255, 255, 0.95);
+    background-color: rgba(0, 128, 0, 0.15); /* Almost transparent green background */
 }
 
 .home-button {
