@@ -10,7 +10,11 @@
     </div>
     <div class="form-group">
       <label for="register-password">Password:</label>
-      <input type="password" id="register-password" name="register-password" [(ngModel)]="registerPassword" required />
+      <input type="password" id="register-password" name="register-password" minlength="6" [(ngModel)]="registerPassword" required />
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Cofirm Password:</label>
+      <input type="password" id="register-password" name="confirm-password" minlength="6" [(ngModel)]="confirmPassword" required />
     </div>
     <button type="submit" (click)="register()" class="submit-button">Sign In</button>
   </form>

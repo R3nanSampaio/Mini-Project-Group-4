@@ -172,6 +172,7 @@ export class ProductComponent {
       this.invoices.unshift(invoice);
       console.log(this.invoices)
       this.saveInvoices()
+      alert("Thank you for your order!")
       this.clearAll()
     }
     async saveInvoices() {

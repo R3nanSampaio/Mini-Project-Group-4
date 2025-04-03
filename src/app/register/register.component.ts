@@ -28,11 +28,18 @@ export class RegisterComponent {
   userName: string = '';
   registerEmail: string = '';
   registerPassword: string = '';
+  confirmPassword: string = '';
 
   register() {
 
     const auth = getAuth();
     const db = getFirestore();
+
+    if (this.registerPassword !== this.confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+
 
     createUserWithEmailAndPassword(auth, this.registerEmail, this.registerPassword)
       .then(async (userCredential) => {
