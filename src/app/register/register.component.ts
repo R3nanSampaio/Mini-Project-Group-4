@@ -54,7 +54,7 @@ export class RegisterComponent {
       });
         
         alert('Registration successful!');
-        window.location.href = '/login';
+        window.location.href = '/home';
               })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
