@@ -1,13 +1,15 @@
-<p>invoices works!</p>
-<h1 [style.display]="empty">You havent made a purchase yet!</h1>
-<div *ngFor="let invoice of invoices">
-    <p>Base Cost: {{ invoice.baseCost }}</p>
-    <p>Milk: {{ invoice.milk }}</p>
-    <p>Syrup: {{ invoice.syrup }}</p>
-    <p>Caffeine: {{ invoice.caffeine }}</p>
-    <p>Discount: {{ invoice.discount }}</p>
-    <p>Subtotal: {{ invoice.subtotal }}</p>
-    <p>Tax: {{ invoice.tax }}</p>
-    <p>Total: {{ invoice.total }}</p>
-    <button (click)="downloadInvoicePDF(invoice.id)">Download</button>
+<div class="empty-message" [style.display]="empty">
+  <h1>You haven't made a purchase yet!</h1>
+</div>
+
+<div *ngFor="let invoice of invoices" class="invoice-card">
+  <p><span>Base Cost:</span> <span>${{ invoice.baseCost }}</span></p>
+  <p><span>Milk:</span> <span>${{ invoice.milk }}</span></p>
+  <p><span>Syrup:</span> <span>${{ invoice.syrup }}</span></p>
+  <p><span>Caffeine:</span> <span>${{ invoice.caffeine }}</span></p>
+  <p><span>Discount:</span> <span>{{ invoice.discount }}</span></p>
+  <p><span>Subtotal:</span> <span>${{ invoice.subtotal }}</span></p>
+  <p><span>Tax:</span> <span>${{ invoice.tax }}</span></p>
+  <p><span>Total:</span> <span>${{ invoice.total }}</span></p>
+  <button class="download-button" (click)="downloadInvoicePDF(invoice.id)">Download Invoice</button>
 </div>

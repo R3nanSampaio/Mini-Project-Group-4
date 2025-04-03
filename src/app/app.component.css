@@ -56,10 +56,28 @@
     gap: 8px;
 }
 
+.example-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+mat-sidenav-container {
+    flex: 1;
+    min-height: 100vh;
+}
+
 mat-sidenav {
     width: 150px;
     padding: 8px;
-    background: rgba(255, 255, 255, 0.95);
+    background-color: rgba(0, 128, 0, 0.15); /* Almost transparent green background */
+    height: 100%;
+}
+
+mat-sidenav-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .home-button {

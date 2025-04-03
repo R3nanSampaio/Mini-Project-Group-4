@@ -1,4 +1,14 @@
-.div1 {border-bottom: 1px black solid;}
+.div1 {
+    border-bottom: none; /* Remove the line below boxes */
+}
+
+.div1:has(p:contains("Subtotal")) {
+    border-bottom: 2px solid #dee2e6;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
 
 .product-container {
   max-width: 480px; /* Reduced 20% from original 600px */
@@ -10,12 +20,12 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;  /* Align content to the left */
-  text-align: left;         /* Ensure text is left aligned */
+  align-items: center;  /* Center all content */
+  text-align: center;  /* Center all text */
 }
 
 .product-container > *:not(h1) {
-  margin-left: 10%;
+  margin-left: 0;
 }
 
 .product-container h1 {
@@ -25,6 +35,68 @@
 
 .discount-code-container {
   width: 100%;
-  text-align: left;
-  padding-left: 0;
+  text-align: center;
+  padding: 0;
+}
+
+.ingredient-box {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 4px 0;  /* Reduced vertical margin */
+  width: 80%;     /* Take up most of the container width */
+  text-align: center;
+  min-width: 250px; /* Ensure minimum width */
+}
+
+.ingredient-box p {
+  margin: 8px 0;
+  font-size: 16px;
+  text-align: center;
+  white-space: nowrap; /* Prevent text wrapping */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Consistent spacing between elements */
+}
+
+.item-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;  /* Reduced vertical gap between boxes */
+  width: 100%;
+}
+
+.ingredient-box button {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: inline-block;
+}
+
+.ingredient-box button:hover {
+  background: #0056b3;
+}
+
+.ingredient-box button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+.product-container > button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background: transparent;
+  color: #4f7b9f;
+  border: 1px solid #4f7b9f;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }

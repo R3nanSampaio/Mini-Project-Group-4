@@ -1,0 +1,47 @@
+.empty-message {
+  font-size: 1.5rem;
+  color: #666;
+  margin: 2rem 0;
+}
+
+.invoice-card {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-card p {
+  margin: 8px 0;
+  padding: 8px 0;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.invoice-card p:last-of-type {
+  border-bottom: none;
+  font-weight: bold;
+}
+
+.download-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 16px;
+  background: transparent;
+  color: #4f7b9f;
+  border: 1px solid #4f7b9f;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.download-button:hover {
+  background: rgba(79, 123, 159, 0.1);
+  border-color: #3d5f7c;
+}

@@ -2,29 +2,35 @@
   <h1>Product Preview</h1>
   <div class="div1">
     <div class="item-group">
-      <p>Milk: <button (click)="lessMilk()" [disabled]="milkVal == 0">-</button> {{milkVal}} <button (click)="addMilk()">+</button></p>
-      <p>+{{milkCost2}}$$</p>
-    </div>
-    <div class="item-group">
-      <p>Syrup: <button (click)="lessSyrup()" [disabled]="syrupVal == 0">-</button> {{syrupVal}} <button (click)="addSyrup()">+</button></p>
-      <p>+{{syrupCost2}}$$</p>
-    </div>
-    <div class="item-group">
-      <p>Caffeine: <button (click)="lessCaffeine()" [disabled]="caffeineVal == 0">-</button> {{caffeineVal}} <button (click)="addCaffeine()">+</button></p>
-      <p>+{{caffeineCost2}}$$</p>
+      <div class="ingredient-box">
+        <p>Milk: <button (click)="lessMilk()" [disabled]="milkVal == 0">-</button> {{milkVal}} <button (click)="addMilk()">+</button></p>
+        <p>${{milkCost2}}</p>
+      </div>
+      <div class="ingredient-box">
+        <p>Syrup: <button (click)="lessSyrup()" [disabled]="syrupVal == 0">-</button> {{syrupVal}} <button (click)="addSyrup()">+</button></p>
+        <p>${{syrupCost2}}</p>
+      </div>
+      <div class="ingredient-box">
+        <p>Caffeine:&nbsp;<button (click)="lessCaffeine()" [disabled]="caffeineVal == 0">-</button>&nbsp;{{caffeineVal}}&nbsp;<button (click)="addCaffeine()">+</button></p>
+        <p>${{caffeineCost2}}</p>
+      </div>
     </div>
   </div>
   <div class="discount-code-container">
     <p>Discount Code: <input type="text" [(ngModel)]="code"> <button (click)="checkDiscount()">Check Discount</button></p>
   </div>
   <div class="div1">
-    <p>Subtotal: {{subtotal2}}</p>
+    <p>Subtotal: ${{subtotal2}}</p>
     <p id="Discount" style="display: none;">Discount 20%</p>
   </div>
+  <div class="discount-code-container">
+    <p>Discount Code: <input type="text" [(ngModel)]="code"> <button (click)="checkDiscount()">Check Discount</button></p>
+  </div>
   <div class="summary-line">
-    <p>Tax: {{subtotalTax}}</p>
+    <p>Tax(GST): ${{subtotalTax}}</p>
   </div>
   <div>
-    <p>Total: {{total}}</p>
+    <p><strong>Total: ${{total}}</strong></p>
+  </div>
+  <button (click)="addInvoice()">Confirm purchase</button>
 </div>
-<button (click)="addInvoice()">Confirm purchase</button>
