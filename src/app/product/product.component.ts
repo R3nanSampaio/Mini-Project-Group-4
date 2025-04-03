@@ -28,16 +28,15 @@ export class ProductComponent {
 
   ngOnInit() {
     const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        this.updateInvoice();
-      } else {
-        alert("Please log in to see this page.");
-        window.location.href = '/login';
-        return
-      }
-    });
+    const user = auth.currentUser;
+
+  if (user) {
+    this.updateInvoice();
+  } else {
+    alert("Please log in to view this page.");
+    window.location.href = '/login';
   }
+}
 
   
   code:string = ''

@@ -30,17 +30,16 @@ export class InvoicesComponent {
   empty = "none"
   ngOnInit() {
     const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        this.updateInvoice();
-      } else {
-        alert("Please log in to view invoices.");
-        window.location.href = '/login';
-        return
-      }
-    });
-    
+
+    const user = auth.currentUser;
+
+  if (user) {
+    this.updateInvoice();
+  } else {
+    alert("Please log in to view invoices.");
+    window.location.href = '/login';
   }
+}
 
   async updateInvoice() {
     const auth = getAuth();
@@ -107,6 +106,8 @@ export class InvoicesComponent {
       page.drawText(`Tax: ${invoice.tax}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;
       page.drawText(`Total: ${invoice.total}`, { x: 50, y: yPosition, size: fontSize });
+      yPosition -= 40;
+      page.drawText("Thank You for your purchase!", { x: 50, y: yPosition, size: fontSize });
   
       const pdfBytes = await pdfDoc.save();
   

@@ -96,6 +96,10 @@ ngOnInit() {
     
     this.itemIndex = this.todo.concat(this.done,  this.progress)
     this.itemIndexNum = this.itemIndex.length
+    if(this.newItem === '') {
+      alert('Please enter a task title!')
+      return;
+    }
     
     const newTask = { 
       name: this.newItem, 
@@ -108,6 +112,8 @@ ngOnInit() {
     console.log(this.itemIndexNum)
     console.log(this.newItemdesc)
     this.saveUserTasks()
+    this.newItem = '';
+    this.newItemdesc = '';
   }
 
   
