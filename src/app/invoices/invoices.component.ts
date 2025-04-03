@@ -34,7 +34,8 @@ export class InvoicesComponent {
       if (user) {
         this.updateInvoice();
       } else {
-        alert("Please log in or register to view invoices.");
+        alert("Please log in to view invoices.");
+        window.location.href = '/register';
         return
       }
     });

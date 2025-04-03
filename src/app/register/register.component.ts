@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { getFirestore, collection, setDoc, doc, getDoc, updateDoc } from 'firebase/firestore/lite'
 
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyB8wWFUVIDDdN-nLIKV5gMMGRluCq5DOfI",
   authDomain: "miniprojectg4-97534.firebaseapp.com",
@@ -26,25 +28,33 @@ export class RegisterComponent {
   userName: string = '';
   registerEmail: string = '';
   registerPassword: string = '';
+  confirmPassword: string = '';
 
   register() {
 
     const auth = getAuth();
     const db = getFirestore();
 
+    if (this.registerPassword !== this.confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+
+
     createUserWithEmailAndPassword(auth, this.registerEmail, this.registerPassword)
       .then(async (userCredential) => {
-        // Signed in
+
         const user = userCredential.user;
         const db = getFirestore();
 
-        const userDocRef = doc(collection(db, 'users'), user.uid); // Reference to the user's document
+        const userDocRef = doc(collection(db, 'users'), user.uid);
       await setDoc(userDocRef, {
         email: user.email,
-        username: this.userName, // Replace with the actual age input from the user
+        username: this.userName, 
       });
         
         alert('Registration successful!');
+        window.location.href = '/login';
               })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
@@ -53,7 +63,7 @@ export class RegisterComponent {
           return
         }
         console.error('Error during registration:', error);
-        alert(`Error: ${error.code}`);
+        alert(`Error: ${error.message}`);
       });
   }
 

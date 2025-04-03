@@ -32,6 +32,8 @@ export class ProductComponent {
       if (user) {
         this.updateInvoice();
       } else {
+        alert("Please log in to see this page.");
+        window.location.href = '/login';
         return
       }
     });
@@ -167,9 +169,10 @@ export class ProductComponent {
         total: this.total,
         id: this.invoices.length + 1
       };
-      this.invoices.push(invoice);
+      this.invoices.unshift(invoice);
       console.log(this.invoices)
       this.saveInvoices()
+      alert("Thank you for your order!")
       this.clearAll()
     }
     async saveInvoices() {
