@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgClass } from '@angular/common';
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, setDoc, doc, getDoc, updateDoc } from 'firebase/firestore/lite'
@@ -17,11 +18,12 @@ const app = initializeApp(firebaseConfig);
 
 @Component({
   selector: 'app-product',
-  imports: [FormsModule, ],
+  imports: [FormsModule, NgClass],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
+  isHot: boolean = true; // Default to "Hot"
 
   invoices: {baseCost: string, milk: string, syrup: string, caffeine: string,discount: string, subtotal: string, tax: string, total: string, id: number}[] = []
   
