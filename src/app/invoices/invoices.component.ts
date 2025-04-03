@@ -26,7 +26,7 @@ const app = initializeApp(firebaseConfig);
   styleUrl: './invoices.component.css'
 })
 export class InvoicesComponent {
-  invoices: {baseCost: string, milk: string, syrup: string, caffeine: string,discount: string, subtotal: string, tax: string, total: string, id: number}[] = []
+  invoices: {baseCost: string, milk: string, syrup: string, caffeine: string,discount: string, subtotal: string, tax: string, total: string, id: number, type: string}[] = []
   empty = "none"
   ngOnInit() {
     const auth = getAuth();
@@ -98,6 +98,8 @@ export class InvoicesComponent {
       page.drawText(`Syrup Cost: $${invoice.syrup}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;
       page.drawText(`Caffeine Cost: $${invoice.caffeine}`, { x: 50, y: yPosition, size: fontSize });
+      yPosition -= 20;
+      page.drawText(`Type: ${invoice.type}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;
       page.drawText(`Discount: ${invoice.discount}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;

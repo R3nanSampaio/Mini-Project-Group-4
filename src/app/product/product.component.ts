@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgClass } from '@angular/common';
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, setDoc, doc, getDoc, updateDoc } from 'firebase/firestore/lite'
@@ -18,14 +17,16 @@ const app = initializeApp(firebaseConfig);
 
 @Component({
   selector: 'app-product',
-  imports: [FormsModule, NgClass],
+  imports: [FormsModule, ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  isHot: boolean = true; // Default to "Hot"
+  isHot: boolean = true;
 
-  invoices: {baseCost: string, milk: string, syrup: string, caffeine: string,discount: string, subtotal: string, tax: string, total: string, id: number}[] = []
+  type: string = ''
+
+  invoices: {baseCost: string, milk: string, syrup: string, caffeine: string,discount: string, subtotal: string, tax: string, total: string, id: number, type: string}[] = []
   
 
   ngOnInit() {
@@ -159,6 +160,12 @@ export class ProductComponent {
          
  
     addInvoice() {
+      if (this.isHot) {
+        this.type = "Hot"}
+
+        else {
+          this.type = "Cold"}
+
       const invoice = {
         baseCost: "0.50",
         milk: this.milkCost2,
@@ -168,7 +175,8 @@ export class ProductComponent {
         subtotal: this.subtotal2,
         tax: this.subtotalTax,
         total: this.total,
-        id: this.invoices.length + 1
+        id: this.invoices.length + 1,
+        type: this.type
       };
       this.invoices.unshift(invoice);
       console.log(this.invoices)
