@@ -16,6 +16,13 @@
       </div>
     </div>
   </div>
+  <div class="toggle-switch-container">
+    <label class="switch">
+      <input type="checkbox" [(ngModel)]="isHot">
+      <span class="slider"></span>
+    </label>
+    <span class="toggle-label">{{isHot ? 'Hot' : 'Cold'}}</span>
+  </div>
   <div class="div1">
     <p>Subtotal: ${{subtotal2}}</p>
     <p id="Discount" style="display: none;">Discount 20%</p>
