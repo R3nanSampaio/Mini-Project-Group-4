@@ -91,21 +91,21 @@ export class InvoicesComponent {
   
       page.drawText(`Invoice ID: ${invoice.id}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;
-      page.drawText(`Base Cost: ${invoice.baseCost}`, { x: 50, y: yPosition, size: fontSize });
+      page.drawText(`Base Cost: $${invoice.baseCost}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;
-      page.drawText(`Milk Cost: ${invoice.milk}`, { x: 50, y: yPosition, size: fontSize });
+      page.drawText(`Milk Cost: $${invoice.milk}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;
-      page.drawText(`Syrup Cost: ${invoice.syrup}`, { x: 50, y: yPosition, size: fontSize });
+      page.drawText(`Syrup Cost: $${invoice.syrup}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;
-      page.drawText(`Caffeine Cost: ${invoice.caffeine}`, { x: 50, y: yPosition, size: fontSize });
+      page.drawText(`Caffeine Cost: $${invoice.caffeine}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;
       page.drawText(`Discount: ${invoice.discount}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;
-      page.drawText(`Subtotal: ${invoice.subtotal}`, { x: 50, y: yPosition, size: fontSize });
+      page.drawText(`Subtotal: $${invoice.subtotal}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;
-      page.drawText(`Tax: ${invoice.tax}`, { x: 50, y: yPosition, size: fontSize });
+      page.drawText(`Tax: $${invoice.tax}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 20;
-      page.drawText(`Total: ${invoice.total}`, { x: 50, y: yPosition, size: fontSize });
+      page.drawText(`Total: $${invoice.total}`, { x: 50, y: yPosition, size: fontSize });
       yPosition -= 40;
       page.drawText("Thank You for your purchase!", { x: 50, y: yPosition, size: fontSize });
   
