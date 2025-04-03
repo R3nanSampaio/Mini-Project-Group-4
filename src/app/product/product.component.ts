@@ -23,7 +23,7 @@ const app = initializeApp(firebaseConfig);
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  isHot: boolean = true; // Default to "Hot"
+  isHot: boolean = true; 
 
   invoices: {baseCost: string, milk: string, syrup: string, caffeine: string,discount: string, subtotal: string, tax: string, total: string, id: number}[] = []
   
