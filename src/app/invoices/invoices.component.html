@@ -1,5 +1,6 @@
-<p>invoices works!</p>
-<h1 [style.display]="empty">You havent made a purchase yet!</h1>
+<div style="display: flex; justify-content: center; align-items: flex-start; text-align: center; margin-top: 10px;">
+<h1 [style.display]="empty">You haven't made a purchase yet!</h1>
+</div>
 <div *ngFor="let invoice of invoices">
     <p>Base Cost: {{ invoice.baseCost }}</p>
     <p>Milk: {{ invoice.milk }}</p>
